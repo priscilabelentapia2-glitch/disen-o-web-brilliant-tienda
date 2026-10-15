@@ -3,33 +3,7 @@
 import { useMemo, useState } from 'react'
 import Image from 'next/image'
 import { ArrowDown, ArrowRight, MapPin, Menu, MessageCircle, X } from 'lucide-react'
-
-const categories = ['Todo', 'Tops', 'Pantalones', 'Faldas', 'Vestidos', 'Novedades'] as const
-
-type Category = (typeof categories)[number]
-type Product = {
-  name: string
-  category: Exclude<Category, 'Todo'>
-  image: string
-  alt: string
-  tag?: string
-  imagePosition?: string
-}
-
-const products: Product[] = [
-  { name: 'Top esencial', category: 'Tops', image: '/images/top-editorial.png', alt: 'Top tejido marfil con pantalón negro', tag: 'Favorito' },
-  { name: 'Pantalón sastrero', category: 'Pantalones', image: '/images/trousers-editorial.png', alt: 'Pantalón sastrero beige de pierna ancha', tag: 'Nuevo' },
-  { name: 'Vestido noche', category: 'Vestidos', image: '/images/dress-editorial.png', alt: 'Vestido midi negro de silueta elegante' },
-  { name: 'Falda midi', category: 'Faldas', image: '/images/skirt-editorial.png', alt: 'Falda midi color crema con top negro' },
-  { name: 'Top de temporada', category: 'Novedades', image: '/images/top-editorial.png', alt: 'Look de temporada en tonos neutros', tag: 'Recién llegado', imagePosition: 'center 35%' },
-  { name: 'Pantalón wide leg', category: 'Pantalones', image: '/images/trousers-editorial.png', alt: 'Look con pantalón beige de corte amplio', imagePosition: 'center 65%' },
-  { name: 'Vestido clásico', category: 'Vestidos', image: '/images/dress-editorial.png', alt: 'Vestido negro clásico para ocasiones especiales', imagePosition: 'center 38%' },
-  { name: 'Falda de invierno', category: 'Novedades', image: '/images/skirt-editorial.png', alt: 'Conjunto femenino en tonos crema y negro', tag: 'Nuevo' },
-]
-
-function whatsappLink(message: string) {
-  return `https://wa.me/?text=${encodeURIComponent(message)}`
-}
+import { categories, heroImage, heroImageAlt, products, storyImage, storyImageAlt, whatsappLink, type Category, type Product } from './catalog-data'
 
 function StoreHeader() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -68,7 +42,7 @@ function Hero() {
         <div className="hero-note"><span className="note-line" /> Una selección hecha para ti</div>
       </div>
       <div className="hero-photo-wrap">
-        <Image className="hero-photo" src="/images/hero-editorial.png" alt="Modelo con blazer negro y pantalón beige en un estudio cálido" fill priority sizes="(max-width: 720px) 100vw, 54vw" />
+        <Image className="hero-photo" src={heroImage} alt={heroImageAlt} fill priority sizes="(max-width: 720px) 100vw, 54vw" />
         <div className="hero-photo-caption"><span>COLECCIÓN</span><strong>Entre tonos</strong><span>ANTOFAGASTA · 2026</span></div>
         <span className="hero-index">01 — 04</span>
       </div>
@@ -123,7 +97,7 @@ function StoryAndLocation() {
   return (
     <>
       <section className="story" id="nosotras">
-        <div className="story-image"><Image src="/images/skirt-editorial.png" alt="Look femenino en tonos neutros de la colección Brilliant" fill sizes="(max-width: 720px) 100vw, 45vw" /></div>
+        <div className="story-image"><Image src={storyImage} alt={storyImageAlt} fill sizes="(max-width: 720px) 100vw, 45vw" /></div>
         <div className="story-copy"><p className="eyebrow">BRILLIANT TIENDA · ANTOFAGASTA</p><h2>Vestirte bien<br />también es<br /><em>sentirte bien.</em></h2><p>Creemos en la ropa que acompaña tu historia. Descubre prendas versátiles, femeninas y elegidas con cariño para ti.</p><a className="text-link" href={whatsappLink('Hola, Brilliant Tienda. Cuéntame más sobre su colección.')} target="_blank" rel="noreferrer">Conversemos <ArrowRight aria-hidden="true" /></a></div>
       </section>
       <section className="location section-wrap" aria-labelledby="location-title">
