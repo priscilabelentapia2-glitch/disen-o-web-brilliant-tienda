@@ -1,4 +1,4 @@
-export const categories = ['Todo', 'Tops', 'Pantalones', 'Faldas', 'Vestidos', 'Novedades'] as const
+export const categories = ['Todo', 'Tops', 'Pantalones', 'Faldas', 'Vestidos', 'Vestidos de gala', 'Vestidos cortos', 'Zapatos', 'Novedades'] as const
 
 export type Category = (typeof categories)[number]
 export type Product = {
@@ -16,6 +16,9 @@ export const products: Product[] = [
   { name: 'Top esencial', category: 'Tops', image: '/images/top-editorial.png', alt: 'Top tejido marfil con pantalón negro', tag: 'Favorito' },
   { name: 'Pantalón sastrero', category: 'Pantalones', image: '/images/trousers-editorial.png', alt: 'Pantalón sastrero beige de pierna ancha', tag: 'Nuevo' },
   { name: 'Vestido noche', category: 'Vestidos', image: '/images/dress-editorial.png', alt: 'Vestido midi negro de silueta elegante' },
+  { name: 'Vestido de gala', category: 'Vestidos de gala', image: '/images/gala-editorial.png', alt: 'Vestido largo negro de gala', tag: 'Ocasión especial' },
+  { name: 'Vestido corto negro', category: 'Vestidos cortos', image: '/images/short-dress-editorial.png', alt: 'Vestido corto negro de líneas modernas', tag: 'Nuevo' },
+  { name: 'Zapatos de tacón', category: 'Zapatos', image: '/images/shoes-editorial.png', alt: 'Zapatos negros de punta y tacón fino' },
   { name: 'Falda midi', category: 'Faldas', image: '/images/skirt-editorial.png', alt: 'Falda midi color crema con top negro' },
   { name: 'Top de temporada', category: 'Novedades', image: '/images/top-editorial.png', alt: 'Look de temporada en tonos neutros', tag: 'Recién llegado', imagePosition: 'center 35%' },
   { name: 'Pantalón wide leg', category: 'Pantalones', image: '/images/trousers-editorial.png', alt: 'Look con pantalón beige de corte amplio', imagePosition: 'center 65%' },
