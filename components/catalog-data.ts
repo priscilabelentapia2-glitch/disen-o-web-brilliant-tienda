@@ -29,7 +29,7 @@ export const heroImageAlt = 'Modelo con blazer negro y pantalón beige en un est
 export const storyImageAlt = 'Look femenino en tonos neutros de la colección Brilliant'
 
 // Sustituye el número por el WhatsApp de la tienda con código de país, sin + ni espacios.
-export const whatsappPhone = ''
+export const whatsappPhone = '56963550639'
 
 export function whatsappLink(message: string) {
   const phone = whatsappPhone.replace(/\D/g, '')
