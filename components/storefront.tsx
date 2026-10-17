@@ -102,8 +102,8 @@ function StoryAndLocation() {
       </section>
       <section className="location section-wrap" aria-labelledby="location-title">
         <div className="location-icon"><MapPin aria-hidden="true" /></div>
-        <div><p className="eyebrow">CERCA DE TI</p><h2 id="location-title">Desde Antofagasta,<br className="mobile-break" /> con mucho estilo.</h2><p>Estamos en Antofagasta, Región de Antofagasta, Chile.</p></div>
-        <a className="location-link" href="https://www.google.com/maps/search/?api=1&query=Antofagasta%2C+Chile" target="_blank" rel="noreferrer">Ver ubicación <ArrowRight aria-hidden="true" /></a>
+        <div><p className="eyebrow">CERCA DE TI</p><h2 id="location-title">Desde Antofagasta,<br className="mobile-break" /> con mucho estilo.</h2><p>Visítanos en Uribe #305, local 4, esquina Washington, a una cuadra del Mallplaza Antofagasta.</p></div>
+        <a className="location-link" href="https://www.google.com/maps/search/?api=1&query=Uribe+305+local+4+esquina+Washington+Antofagasta+Chile" target="_blank" rel="noreferrer">Ver ubicación <ArrowRight aria-hidden="true" /></a>
       </section>
       <footer className="site-footer"><a className="wordmark footer-wordmark" href="#inicio"><span>BRILLIANT</span><small>TIENDA</small></a><p>Moda para sentirte tú. <span>© 2026 Brilliant Tienda</span></p><a href={whatsappLink('Hola, Brilliant Tienda.')} target="_blank" rel="noreferrer">Hablemos por WhatsApp <ArrowRight aria-hidden="true" /></a></footer>
     </>
