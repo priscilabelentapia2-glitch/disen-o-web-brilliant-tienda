@@ -1,4 +1,4 @@
-export const categories = ['Todo', 'Tops', 'Pantalones', 'Faldas', 'Vestidos', 'Vestidos de gala', 'Vestidos cortos', 'Zapatos', 'Novedades'] as const
+export const categories = ['Todo', 'Tops', 'Pantalones', 'Faldas', 'Vestidos', 'Vestidos de gala', 'Vestidos cortos', 'Zapatos', 'Botas', 'Novedades'] as const
 
 export type Category = (typeof categories)[number]
 export type Product = {
@@ -19,6 +19,10 @@ export const products: Product[] = [
   { name: 'Vestido de gala', category: 'Vestidos de gala', image: '/images/gala-editorial.png', alt: 'Vestido largo negro de gala', tag: 'Ocasión especial' },
   { name: 'Vestido corto negro', category: 'Vestidos cortos', image: '/images/short-dress-editorial.png', alt: 'Vestido corto negro de líneas modernas', tag: 'Nuevo' },
   { name: 'Zapatos de tacón', category: 'Zapatos', image: '/images/shoes-editorial.png', alt: 'Zapatos negros de punta y tacón fino' },
+  { name: 'Botas negras — colección', category: 'Botas', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8183-QWXPrjyclyJej10EttZ0lM6BEnFyeF.jpeg', alt: 'Selección de botas negras de tacón, plataforma y caña alta' },
+  { name: 'Botín negro con plataforma', category: 'Botas', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8181-zWnTfP86VeMX23SntXZx6gPU3qCOfL.jpeg', alt: 'Botín negro de tacón alto y plataforma', tag: 'Nuevo' },
+  { name: 'Bota alta plataforma', category: 'Botas', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8180-Hdo1qo0LwWScKhUYgoJGxwyKSABRWb.jpeg', alt: 'Bota negra alta con caña elástica y plataforma' },
+  { name: 'Bota alta fruncida', category: 'Botas', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8179-8sdTeFD62rQxwSbBcAcDo1Y1SYhDjq.jpeg', alt: 'Bota negra alta de tacón grueso y caña fruncida' },
   { name: 'Falda midi', category: 'Faldas', image: '/images/skirt-editorial.png', alt: 'Falda midi color crema con top negro' },
   { name: 'Top de temporada', category: 'Novedades', image: '/images/top-editorial.png', alt: 'Look de temporada en tonos neutros', tag: 'Recién llegado', imagePosition: 'center 35%' },
   { name: 'Pantalón wide leg', category: 'Pantalones', image: '/images/trousers-editorial.png', alt: 'Look con pantalón beige de corte amplio', imagePosition: 'center 65%' },
