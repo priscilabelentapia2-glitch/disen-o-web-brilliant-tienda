@@ -55,22 +55,11 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
   const message = `Hola, Brilliant Tienda. Quisiera consultar el precio de ${product.name}.`
   return (
     <article className="product-card">
-      {product.video ? (
-        <div className="product-image">
-          <video className="product-video" controls playsInline preload="metadata" poster={product.image} aria-label={product.alt}>
-            <source src={product.video} type="video/quicktime" />
-            Tu navegador no puede reproducir este video.
-          </video>
-          {product.tag && <span className="product-tag">{product.tag}</span>}
-          <span className="product-number">0{index + 1}</span>
-        </div>
-      ) : (
-        <a className="product-image" href={whatsappLink(message)} target="_blank" rel="noreferrer" aria-label={`Consultar ${product.name} por WhatsApp`}>
-          <Image src={product.image} alt={product.alt} fill sizes="(max-width: 560px) 46vw, (max-width: 900px) 30vw, 23vw" style={{ objectPosition: product.imagePosition ?? 'center' }} />
-          {product.tag && <span className="product-tag">{product.tag}</span>}
-          <span className="product-number">0{index + 1}</span>
-        </a>
-      )}
+      <a className="product-image" href={product.video ?? whatsappLink(message)} target="_blank" rel="noreferrer" aria-label={product.video ? `Ver video de ${product.name}` : `Consultar ${product.name} por WhatsApp`}>
+        <Image src={product.image} alt={product.alt} fill sizes="(max-width: 560px) 46vw, (max-width: 900px) 30vw, 23vw" style={{ objectPosition: product.imagePosition ?? 'center' }} />
+        {product.tag && <span className="product-tag">{product.tag}</span>}
+        <span className="product-number">0{index + 1}</span>
+      </a>
       <div className="product-details">
         <div><p className="product-category">{product.category}</p><h3>{product.name}</h3></div>
         <a className="product-link" href={whatsappLink(message)} target="_blank" rel="noreferrer" aria-label={`Consultar precio de ${product.name} por WhatsApp`}><ArrowRight aria-hidden="true" /></a>
