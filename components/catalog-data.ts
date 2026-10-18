@@ -15,6 +15,10 @@ export type Product = {
 // Guarda cada foto en public/images y escribe su ruta como /images/nombre-del-archivo.jpg.
 export const products: Product[] = [
   { name: 'Top esencial', category: 'Tops', image: '/images/top-editorial.png', alt: 'Top tejido marfil con pantalón negro', tag: 'Favorito' },
+  { name: 'Top lunares negro hombros descubiertos', category: 'Tops', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Image-95E6D0B2-6MmXD8eAY3MLoEVVbJQ0gJ24BzpaHm.jpeg', alt: 'Top negro con lunares blancos y hombros descubiertos', tag: 'Nuevo', imagePosition: 'center 40%' },
+  { name: 'Top lunares blanco hombros descubiertos', category: 'Tops', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Image-084304E2-lmSaFZKcAive71nigYRRLkNKWutpVE.jpeg', alt: 'Top blanco con lunares negros y hombros descubiertos', tag: 'Nuevo', imagePosition: 'center 35%' },
+  { name: 'Top lunares negro halter', category: 'Tops', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Image-E963F497-1ik5u1JYg0gMgB1Huqg5IzEMe9BBfv.jpeg', alt: 'Top halter negro con lunares blancos y escote en V', tag: 'Nuevo', imagePosition: 'center 40%' },
+  { name: 'Top lunares blanco halter', category: 'Tops', image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Image-018B0E0A-ZDqao420ixbrxHOdKlHUMa257b3FVQ.jpeg', alt: 'Top halter blanco con lunares negros y amarre al cuello', tag: 'Nuevo', imagePosition: 'center 45%' },
   { name: 'Pantalón sastrero', category: 'Pantalones', image: '/images/trousers-editorial.png', alt: 'Pantalón sastrero beige de pierna ancha', tag: 'Nuevo' },
   { name: 'Vestido noche', category: 'Vestidos', image: '/images/dress-editorial.png', alt: 'Vestido midi negro de silueta elegante' },
   { name: 'Vestido de gala negro', category: 'Vestidos de gala', image: '/images/gala-editorial.png', alt: 'Vestido largo negro de gala', tag: 'Ocasión especial' },
