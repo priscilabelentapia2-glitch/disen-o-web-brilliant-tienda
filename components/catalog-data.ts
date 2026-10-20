@@ -44,9 +44,9 @@ export const products: Product[] = [
   { name: 'Falda de invierno', category: 'Novedades', image: '/images/skirt-editorial.png', alt: 'Conjunto femenino en tonos crema y negro', tag: 'Nuevo' },
 ]
 
-export const heroImage = '/images/hero-editorial.png'
+export const heroImage = '/images/hero-tienda.jpg'
 export const storyImage = '/images/skirt-editorial.png'
-export const heroImageAlt = 'Modelo con blazer negro y pantalón beige en un estudio cálido'
+export const heroImageAlt = 'Modelo con conjunto negro de top halter con cinturón y pantalón ancho en la entrada de la tienda'
 export const storyImageAlt = 'Look femenino en tonos neutros de la colección Brilliant'
 
 // Sustituye el número por el WhatsApp de la tienda con código de país, sin + ni espacios.
