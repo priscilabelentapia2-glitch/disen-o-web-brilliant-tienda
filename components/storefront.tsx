@@ -1,35 +1,9 @@
-'use client'
-
-import { useMemo, useState } from 'react'
 import Image from 'next/image'
-import { ArrowDown, ArrowRight, MapPin, Menu, MessageCircle, X } from 'lucide-react'
-import { categories, heroImage, heroImageAlt, products, storyImage, storyImageAlt, whatsappLink, type Category, type Product } from './catalog-data'
-
-function StoreHeader() {
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  return (
-    <>
-      <div className="announcement">ENVÍOS Y PEDIDOS · ANTOFAGASTA, CHILE</div>
-      <header className="site-header">
-        <a className="wordmark" href="#inicio" aria-label="Brilliant Tienda, inicio">
-          <span>BRILLIANT</span><small>TIENDA</small>
-        </a>
-        <button className="menu-toggle" type="button" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={menuOpen}>
-          {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-        </button>
-        <nav className={`main-nav${menuOpen ? ' is-open' : ''}`} aria-label="Navegación principal">
-          <a href="#inicio" onClick={() => setMenuOpen(false)}>Inicio</a>
-          <a href="#catalogo" onClick={() => setMenuOpen(false)}>Colección</a>
-          <a href="#nosotras" onClick={() => setMenuOpen(false)}>Nuestra tienda</a>
-          <a className="nav-contact" href={whatsappLink('Hola, Brilliant Tienda. Quisiera hacer un pedido.')} target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>
-            <MessageCircle aria-hidden="true" /> Hacer un pedido
-          </a>
-        </nav>
-      </header>
-    </>
-  )
-}
+import { ArrowDown, ArrowRight, MapPin, MessageCircle } from 'lucide-react'
+import { heroImage, heroImageAlt, storyImage, storyImageAlt, whatsappLink } from './catalog-data'
+import {Catalog} from './catalog'
+import {StoreHeader} from './store-header'
+import type {CatalogData} from '@/sanity/types/catalog'
 
 function Hero() {
   return (
@@ -51,48 +25,6 @@ function Hero() {
   )
 }
 
-function ProductCard({ product, index }: { product: Product; index: number }) {
-  const message = `Hola, Brilliant Tienda. Quisiera consultar el precio de ${product.name}.`
-  return (
-    <article className="product-card">
-      <a className="product-image" href={product.video ?? whatsappLink(message)} target="_blank" rel="noreferrer" aria-label={product.video ? `Ver video de ${product.name}` : `Consultar ${product.name} por WhatsApp`}>
-        <Image src={product.image} alt={product.alt} fill sizes="(max-width: 560px) 46vw, (max-width: 900px) 30vw, 23vw" style={{ objectPosition: product.imagePosition ?? 'center' }} />
-        {product.tag && <span className="product-tag">{product.tag}</span>}
-        <span className="product-number">0{index + 1}</span>
-      </a>
-      <div className="product-details">
-        <div><p className="product-category">{product.category}</p><h3>{product.name}</h3></div>
-        <a className="product-link" href={whatsappLink(message)} target="_blank" rel="noreferrer" aria-label={`Consultar precio de ${product.name} por WhatsApp`}><ArrowRight aria-hidden="true" /></a>
-      </div>
-      <a className="product-whatsapp" href={whatsappLink(message)} target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" /> Consultar precio por WhatsApp</a>
-    </article>
-  )
-}
-
-function Catalog() {
-  const [activeCategory, setActiveCategory] = useState<Category>('Todo')
-  const filteredProducts = useMemo(
-    () => activeCategory === 'Todo' ? products : products.filter((product) => product.category === activeCategory),
-    [activeCategory],
-  )
-
-  return (
-    <section className="catalog section-wrap" id="catalogo" aria-labelledby="catalog-title">
-      <div className="section-heading">
-        <div><p className="eyebrow">UN CLOSET CON INTENCIÓN</p><h2 id="catalog-title">La colección</h2></div>
-        <p className="section-aside">Prendas que combinan con tu manera<br className="desktop-break" /> de vivir y de expresarte.</p>
-      </div>
-      <div className="category-list" role="group" aria-label="Filtrar productos por categoría">
-        {categories.map((category) => <button key={category} type="button" className={`category-button${activeCategory === category ? ' active' : ''}`} aria-pressed={activeCategory === category} onClick={() => setActiveCategory(category)}>{category}</button>)}
-      </div>
-      <div className="product-grid" aria-live="polite">
-        {filteredProducts.map((product, index) => <ProductCard key={`${product.name}-${product.category}`} product={product} index={index} />)}
-      </div>
-      <p className="catalog-footnote">¿Viste algo que te gustó? Escríbenos y te ayudamos a elegir.</p>
-    </section>
-  )
-}
-
 function StoryAndLocation() {
   return (
     <>
@@ -110,8 +42,8 @@ function StoryAndLocation() {
   )
 }
 
-export default function Storefront() {
-  return <><StoreHeader /><main><Hero /><div className="collection-strip"><span>ESTILO · ESENCIA · BRILLIANT</span><span>UNA SELECCIÓN PARA TI</span><span>ANTOFAGASTA, CHILE</span></div><Catalog /><StoryAndLocation /></main></>
+export default function Storefront({catalog}: {catalog: CatalogData}) {
+  return <><StoreHeader orderLink={whatsappLink('Hola, Brilliant Tienda. Quisiera hacer un pedido.')} /><main><Hero /><div className="collection-strip"><span>ESTILO · ESENCIA · BRILLIANT</span><span>UNA SELECCIÓN PARA TI</span><span>ANTOFAGASTA, CHILE</span></div><Catalog products={catalog.products} categories={catalog.categories} /><StoryAndLocation /></main></>
 }
 
 export { whatsappLink }
@@ -120,6 +52,6 @@ export function FloatingWhatsApp() {
   return <a className="floating-whatsapp" href={whatsappLink('Hola, Brilliant Tienda. Quiero hacer una consulta.')} target="_blank" rel="noreferrer" aria-label="Consultar por WhatsApp"><MessageCircle aria-hidden="true" /><span>Hablemos</span></a>
 }
 
-export function StorePage() {
-  return <><Storefront /><FloatingWhatsApp /></>
+export function StorePage({catalog}: {catalog: CatalogData}) {
+  return <><Storefront catalog={catalog} /><FloatingWhatsApp /></>
 }
